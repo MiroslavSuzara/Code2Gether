@@ -8,14 +8,14 @@ class Fire {
 		this.chatRoomName = "messages";
 		if (!firebase.apps.length) {
 			firebase.initializeApp({
-        apiKey: "AIzaSyBECbPsPXyNLhUqHTqFJUJVjqtpLWimxJQ",
-        authDomain: "cs377u-demo.firebaseapp.com",
-        databaseURL: "https://cs377u-demo.firebaseio.com",
-        projectId: "cs377u-demo",
-        storageBucket: "cs377u-demo.appspot.com",
-        messagingSenderId: "868121913126",
-        appId: "1:868121913126:web:6caee51369ad913b7c43e7",
-        measurementId: "G-HD064Q1H6J"
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        projectId: "",
+        storageBucket: "",
+        messagingSenderId: "",
+        appId: "",
+        measurementId: ""
 			});
 		}
 	}
