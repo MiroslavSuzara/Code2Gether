@@ -53,7 +53,7 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'Log In';
+      return 'Home';
     case 'Chat':
       return 'Chat Rooms';
     case 'Profile':

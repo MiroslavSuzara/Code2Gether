@@ -34,19 +34,29 @@ export default class Chatscreen extends Component {
     };
   }
 
+  // //do I need this?
+  //   get otheruser() {
+  //     return {
+  //       nameother: Fire.shared.name,
+  //       _idother: Fire.shared.uid,
+  //     };
+  //   }
+
   handlePressClose() {
     this.setState({modalOpen: false})
   }
 
-  handlePressOpen() {
+  handlePressOpen(user) {
     this.setState({modalOpen: true})
+    Fire.shared.getnameother(name_result =>
+      this.setState({nameother:name_result}), user);
+      Fire.shared.getprofileother(profile_result =>
+        this.setState({profileother:profile_result}), user);
   }
 
   render() {
     return (
       <View style={styles.container}>
-
-
         <Modal visible={this.state.modalOpen} animationType='slide'>
           <View style={styles.modalContent}>
             <View style={styles.header}>
@@ -56,14 +66,10 @@ export default class Chatscreen extends Component {
                 onPress = {() => this.handlePressClose()}
               />
               <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
-
             </View>
-
               <View style={styles.bodyContent}>
-                <Text style={styles.name}>MB</Text>
-                <Text style={styles.info}>Junior</Text>
-                <Text style={styles.description}>MS&E student looking for a partner for psets</Text>
-
+                <Text style={styles.name}> {this.state.nameother} </Text>
+                <Text style={styles.description}> {this.state.profileother} </Text>
                 <TouchableOpacity style={styles.buttonContainer}>
                   <Text>Call</Text>
                 </TouchableOpacity>
@@ -71,8 +77,6 @@ export default class Chatscreen extends Component {
                   <Text>Zoom</Text>
                 </TouchableOpacity>
                 </View>
-
-
           </View>
         </Modal>
 
@@ -82,8 +86,12 @@ export default class Chatscreen extends Component {
           messages={this.state.messages}
           onSend={Fire.shared.send}
           user={this.user}
-          onPressAvatar = {() => this.handlePressOpen()}
+          renderUsernameOnMessage={true}
+          showAvatarForEveryMessage={true}
+          renderAvatarOnTop={true}
 
+          onPressAvatar = {(user) => this.handlePressOpen(user)}
+          //this.props.current.currentMessage.user
         />
       </View>
     );
@@ -159,15 +167,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginTop:130
   },
-  name:{
-    fontSize:22,
-    color:"#FFFFFF",
-    fontWeight:'600',
-  },
+  // name:{
+  //   fontSize:22,
+  //   color:"#FFFFFF",
+  //   fontWeight:'600',
+  // },
   bodyContent: {
     flex: 1,
     color:"#FFFFFF",
-
     alignItems: 'center',
     padding:30,
   },

@@ -23,8 +23,8 @@ import { MonoText } from '../components/StyledText';
 export default class Login extends Component {
 
 	state = {
-		name: 'Alice',
-		email: 'test@gmail.com',
+		name: 'Test',
+		email: 'test@live.com',
 		password: '123456',
 		avatar: ''
 	}

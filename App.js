@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/LoginScreen';
 import LinksScreen from './screens/LinksScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import UpdateProfileScreen from './screens/UpdateProfileScreen';
 import ChatScreen from './screens/ChatScreen';
 import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
@@ -28,6 +29,7 @@ export default function App(props) {
             <Stack.Screen name="Chat Rooms" component={BottomTabNavigator} />
             <Stack.Screen name="SignUp" component={SignUpScreen} />
             <Stack.Screen name="ChatScreen" component={ChatScreen} />
+            <Stack.Screen name="UpdateProfileScreen" component={UpdateProfileScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
